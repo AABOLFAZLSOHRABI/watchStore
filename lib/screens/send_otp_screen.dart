@@ -20,8 +20,8 @@ class SendOtpScreen extends StatelessWidget {
             Image.asset(Assets.png.mainLogo.path, height: size.height / 2),
             Dimens.large.height,
             AppTextField(
-              lable: AppStrings.enterYourNumber,
-              hite: AppStrings.hintPhoneNumber,
+              label: AppStrings.enterYourNumber,
+              hint: AppStrings.hintPhoneNumber,
               controller: _controller,
             ),
           ],

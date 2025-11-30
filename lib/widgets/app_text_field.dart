@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:watch_store/components/extention.dart';
 import 'package:watch_store/res/dimens.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextField extends StatelessWidget {
-  final String lable;
-  final String hite;
+  final String label;
+  final String hint;
   TextEditingController controller;
   final Widget icon;
   final TextAlign textAlign;
@@ -12,8 +13,8 @@ class AppTextField extends StatelessWidget {
 
   AppTextField({
     super.key,
-    required this.lable,
-    required this.hite,
+    required this.label,
+    required this.hint,
     required this.controller,
     this.textAlign = TextAlign.center,
     this.inputType = TextInputType.text,
@@ -22,22 +23,21 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.all(Dimens.meduim),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text(lable),
+          Text(label),
           Dimens.meduim.height,
           SizedBox(
-            height: size.height * .07,
-            width: size.width * .75,
+            height: 42.h, 
+            width: 260.w,
             child: TextField(
               textAlign: textAlign,
               controller: controller,
               keyboardType: inputType,
-              decoration: InputDecoration(hintText: hite, prefixIcon: icon),
+              decoration: InputDecoration(hintText: hint, prefixIcon: icon),
             ),
           ),
         ],
