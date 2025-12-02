@@ -36,7 +36,7 @@ A modern Flutter e-commerce application for buying and selling watches, built wi
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/AABOLFAZLSOHRABI/watchStore.git
 cd watch_store
 ```
 

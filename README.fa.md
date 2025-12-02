@@ -34,7 +34,7 @@
 
 1. کلون کردن مخزن:
 ```bash
-git clone <repository-url>
+git clone https://github.com/AABOLFAZLSOHRABI/watchStore.git
 cd watch_store
 ```
 
