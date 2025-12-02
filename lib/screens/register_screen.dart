@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class GetOtpScreen extends StatelessWidget {
   const GetOtpScreen
 ({super.key});

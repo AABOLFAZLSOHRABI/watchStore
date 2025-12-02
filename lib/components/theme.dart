@@ -13,17 +13,17 @@ ThemeData lightTheme = ThemeData(
     fillColor: WidgetStateColor.resolveWith((states) {
       if (states.contains(WidgetState.focused) ||
           states.contains(WidgetState.hovered)) {
-        return AppColors.focusedBorderColor;
+        return AppColors.btmNavColor;
       }
       return AppColors.unFocusedTextField;
     }),
-    contentPadding: EdgeInsets.all(Dimens.meduim),
+    contentPadding: EdgeInsets.all(Dimens.mediumH),
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(Dimens.meduim),
+      borderRadius: BorderRadius.circular(Dimens.mediumH),
       borderSide: BorderSide(color: AppColors.borderColor),
     ),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(Dimens.meduim),
+      borderRadius: BorderRadius.circular(Dimens.mediumH),
       borderSide: BorderSide(color: AppColors.focusedBorderColor),
     ),
   ),
