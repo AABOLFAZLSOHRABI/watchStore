@@ -1,11 +1,11 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-abstract class Dimens {
-    // مقادیر پایه (طراحی فیگما)
+abstract class AppDimens {
+  // مقادیر پایه (طراحی فیگما)
   static const double _small = 8;
   static const double _medium = 12;
   static const double _large = 24;
-  // TEXT Field size 
+  // TEXT Field size
   static double get textFieldHeight => 42.h;
   static double get textFieldWidth => 260.w;
   // text fild hint size font
@@ -33,7 +33,7 @@ abstract class Dimens {
   static double get mediumRadius => _medium.r;
   static double get largeRadius => _large.r;
 
-  // Logo size 
+  // Logo size
   static double logoSizeLargHeight = 121.h;
   static double logoSizeLargWidth = 300.w;
 

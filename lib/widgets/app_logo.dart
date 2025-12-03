@@ -11,11 +11,11 @@ class AppLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = size == LogoSize.small
-        ? Dimens.logoSizeSmallHeight
-        : Dimens.logoSizeLargHeight;
+        ? AppDimens.logoSizeSmallHeight
+        : AppDimens.logoSizeLargHeight;
     final double width = size == LogoSize.small
-        ? Dimens.logoSizeSmallWidth
-        : Dimens.logoSizeLargWidth;
+        ? AppDimens.logoSizeSmallWidth
+        : AppDimens.logoSizeLargWidth;
     return Image.asset(
       Assets.png.mainLogo.path,
       height: height,

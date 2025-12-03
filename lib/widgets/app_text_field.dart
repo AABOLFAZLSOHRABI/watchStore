@@ -10,6 +10,7 @@ class AppTextField extends StatelessWidget {
   final Widget prefixIcon;
   final TextAlign textAlign;
   final TextInputType inputType;
+  final String prefixText;
 
   const AppTextField({
     super.key,
@@ -19,29 +20,39 @@ class AppTextField extends StatelessWidget {
     this.textAlign = TextAlign.center,
     this.inputType = TextInputType.text,
     this.prefixIcon = const SizedBox(),
+    this.prefixText = '',
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(Dimens.smallH),
+      padding: EdgeInsets.all(AppDimens.smallH),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text(label),
-          Dimens.mediumH.height,
           SizedBox(
-            height: Dimens.textFieldHeight,
-            width: Dimens.textFieldWidth,
+            width: AppDimens.textFieldWidth,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [Text(prefixText), Text(label)],
+            ),
+          ),
+          AppDimens.mediumH.height,
+          SizedBox(
+            height: AppDimens.textFieldHeight,
+            width: AppDimens.textFieldWidth,
             child: TextField(
               textAlign: textAlign,
-                textAlignVertical: TextAlignVertical.center,
+              textAlignVertical: TextAlignVertical.center,
               controller: controller,
               keyboardType: inputType,
               decoration: InputDecoration(
                 hintText: hint,
                 prefixIcon: prefixIcon,
-                hintStyle: TextStyle(color: AppColors.hint,fontSize: Dimens.textFontHint),
+                hintStyle: TextStyle(
+                  color: AppColors.hint,
+                  fontSize: AppDimens.textFontHint,
+                ),
               ),
             ),
           ),

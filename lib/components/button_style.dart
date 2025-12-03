@@ -8,7 +8,7 @@ abstract class AppButtonStyle {
     foregroundColor: WidgetStatePropertyAll<Color>(AppColors.btmNavColor),
     shape: WidgetStatePropertyAll(
       RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(Dimens.mediumRadius),
+        borderRadius: BorderRadius.circular(AppDimens.mediumRadius),
       ),
 
     ),

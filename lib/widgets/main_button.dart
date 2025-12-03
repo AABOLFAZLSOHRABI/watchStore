@@ -9,8 +9,8 @@ class MainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Dimens.buttonHeight,
-      width: Dimens.buttonWidth,
+      height: AppDimens.buttonHeight,
+      width: AppDimens.buttonWidth,
       child: ElevatedButton(
         onPressed: () => onTaPeressed,
         style: AppButtonStyle.mainButtonStyle,

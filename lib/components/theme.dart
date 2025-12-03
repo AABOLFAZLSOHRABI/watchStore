@@ -17,13 +17,13 @@ ThemeData lightTheme = ThemeData(
       }
       return AppColors.unFocusedTextField;
     }),
-    contentPadding: EdgeInsets.all(Dimens.mediumH),
+    contentPadding: EdgeInsets.all(AppDimens.mediumH),
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(Dimens.mediumH),
+      borderRadius: BorderRadius.circular(AppDimens.mediumH),
       borderSide: BorderSide(color: AppColors.borderColor),
     ),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(Dimens.mediumH),
+      borderRadius: BorderRadius.circular(AppDimens.mediumH),
       borderSide: BorderSide(color: AppColors.focusedBorderColor),
     ),
   ),
