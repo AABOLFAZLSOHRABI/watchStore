@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:watch_store/components/extention.dart';
-import 'package:watch_store/res/colors.dart';
-import 'package:watch_store/res/dimens.dart';
+import 'package:watch_store/components/text_style.dart';
+import 'package:watch_store/res/dimes.dart';
 
 class AppTextField extends StatelessWidget {
   final String label;
@@ -26,21 +26,24 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(AppDimens.smallH),
+      padding: EdgeInsets.all(AppDimes.smallH),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           SizedBox(
-            width: AppDimens.textFieldWidth,
+            width: AppDimes.textFieldWidth,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Text(prefixText), Text(label)],
+              children: [
+                Text(prefixText, style: LightAppTestState.title),
+                Text(label, style: LightAppTestState.title),
+              ],
             ),
           ),
-          AppDimens.mediumH.height,
+          AppDimes.mediumH.height,
           SizedBox(
-            height: AppDimens.textFieldHeight,
-            width: AppDimens.textFieldWidth,
+            height: AppDimes.textFieldHeight,
+            width: AppDimes.textFieldWidth,
             child: TextField(
               textAlign: textAlign,
               textAlignVertical: TextAlignVertical.center,
@@ -49,10 +52,7 @@ class AppTextField extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: hint,
                 prefixIcon: prefixIcon,
-                hintStyle: TextStyle(
-                  color: AppColors.hint,
-                  fontSize: AppDimens.textFontHint,
-                ),
+                hintStyle: LightAppTestState.hint,
               ),
             ),
           ),

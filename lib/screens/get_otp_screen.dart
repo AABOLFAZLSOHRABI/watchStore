@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:watch_store/components/extention.dart';
+import 'package:watch_store/components/text_style.dart';
 import 'package:watch_store/res/colors.dart';
 import 'package:watch_store/res/strings.dart';
+import 'package:watch_store/route/names.dart';
 import 'package:watch_store/widgets/app_logo.dart';
 import 'package:watch_store/widgets/app_text_field.dart';
 import 'package:watch_store/widgets/main_button.dart';
@@ -27,8 +29,9 @@ class GetOtpScreen extends StatelessWidget {
                   AppStrings.replace,
                   "0912566",
                 ),
+                style: LightAppTestState.title,
               ),
-              
+
               14.h.height,
               Text(
                 AppStrings.wrongNumberEditNumber,
@@ -43,7 +46,11 @@ class GetOtpScreen extends StatelessWidget {
                 prefixText: "2:56",
               ),
               24.h.height,
-              MainButton(text: AppStrings.next, onTaPeressed: () => {}),
+              MainButton(
+                text: AppStrings.next,
+                onTaPeressed: () =>
+                    Navigator.pushNamed(context, ScreenNames.registerScreen),
+              ),
             ],
           ),
         ),

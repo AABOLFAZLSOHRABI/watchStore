@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:watch_store/components/theme.dart';
-import 'package:watch_store/screens/register_screen.dart';
+import 'package:watch_store/route/names.dart';
+import 'package:watch_store/route/routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Watch Store',
           theme: lightTheme,
-          home: RegisterScreen(),
+          initialRoute: ScreenNames.root,
+          routes: routes,
         );
       },
     );

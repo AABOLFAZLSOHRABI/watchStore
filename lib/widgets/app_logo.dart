@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:watch_store/res/dimens.dart';
+import 'package:watch_store/res/dimes.dart';
 
 import '../gen/assets.gen.dart';
 
@@ -11,11 +11,11 @@ class AppLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = size == LogoSize.small
-        ? AppDimens.logoSizeSmallHeight
-        : AppDimens.logoSizeLargHeight;
+        ? AppDimes.logoSizeSmallHeight
+        : AppDimes.logoSizeLargeHeight;
     final double width = size == LogoSize.small
-        ? AppDimens.logoSizeSmallWidth
-        : AppDimens.logoSizeLargWidth;
+        ? AppDimes.logoSizeSmallWidth
+        : AppDimes.logoSizeLargeWidth;
     return Image.asset(
       Assets.png.mainLogo.path,
       height: height,

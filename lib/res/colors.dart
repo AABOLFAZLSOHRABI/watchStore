@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   AppColors._();
-  static const List<Color> productBgGradiant = [
+  static const List<Color> productBgGradient = [
     Color.fromARGB(255, 238, 238, 238),
     Color.fromARGB(255, 255, 255, 255)
   ];
-  static const List<Color> catClasicColors = [
+  static const List<Color> catClassicColors = [
     Color.fromARGB(255, 255, 166, 114),
     Color.fromARGB(255, 255, 227, 200)
   ];
@@ -28,7 +28,7 @@ class AppColors {
   static const Color oldPrice = Color.fromARGB(255, 191, 191, 191);
   static const Color shadow = Color.fromARGB(90, 0, 0, 0);
   static const Color hint = Colors.grey;
-  static const Color appbar = Colors.white;
+  static const Color appBar = Colors.white;
   static const Color searchBar = Colors.white;
   static const Color scaffoldBackgroundColor =
       Color.fromARGB(255, 251, 251, 251);
@@ -45,5 +45,5 @@ class AppColors {
   static const Color amazingColor = Color.fromARGB(255, 57, 24, 80);
   static const Color success = Colors.green;
   static const Color onSuccess = Colors.white;
-  static const Color btncolor = Color.fromARGB(255, 0, 117, 251);
+  static const Color btnColor = Color.fromARGB(255, 0, 117, 251);
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:watch_store/res/colors.dart';
-import 'package:watch_store/res/dimens.dart';
+import 'package:watch_store/res/dimes.dart';
 
 ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
@@ -17,13 +17,13 @@ ThemeData lightTheme = ThemeData(
       }
       return AppColors.unFocusedTextField;
     }),
-    contentPadding: EdgeInsets.all(AppDimens.mediumH),
+    contentPadding: EdgeInsets.all(AppDimes.mediumH),
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(AppDimens.mediumH),
+      borderRadius: BorderRadius.circular(AppDimes.mediumH),
       borderSide: BorderSide(color: AppColors.borderColor),
     ),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(AppDimens.mediumH),
+      borderRadius: BorderRadius.circular(AppDimes.mediumH),
       borderSide: BorderSide(color: AppColors.focusedBorderColor),
     ),
   ),
