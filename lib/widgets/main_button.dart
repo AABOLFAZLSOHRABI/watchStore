@@ -13,7 +13,7 @@ class MainButton extends StatelessWidget {
       height: AppDimes.buttonHeight,
       width: AppDimes.buttonWidth,
       child: ElevatedButton(
-        onPressed: () => onTaPeressed,
+        onPressed: onTaPeressed,
         style: AppButtonStyle.mainButtonStyle,
         child: Text(text,style: LightAppTestState.button,),
       ),

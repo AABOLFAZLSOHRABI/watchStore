@@ -30,9 +30,7 @@ class SendOtpScreen extends StatelessWidget {
               24.h.height,
               MainButton(
                 text: AppStrings.sendOtpCode,
-                onTaPeressed: () => {
-                  Navigator.pushNamed(context, ScreenNames.getOtpScreen),
-                },
+                onTaPeressed: () => Navigator.pushNamed(context, ScreenNames.getOtpScreen),
               ),
             ],
           ),

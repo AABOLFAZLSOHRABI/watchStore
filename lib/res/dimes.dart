@@ -45,6 +45,8 @@ abstract class AppDimes {
 
   // size height app bar screen register 
   static double registrationAppBarHeight = 67.h;
-  // Navigation App bar 
+  // Navigation App bar size
   static double navigationAppBarHight = 83.h;
+  // Navigation App bar title size
+  static double navigationAppBarTitleSize = 14.sp;
 }

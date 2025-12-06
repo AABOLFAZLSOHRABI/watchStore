@@ -34,4 +34,17 @@ abstract class LightAppTestState {
     color: AppColors.primaryColor,
     fontWeight: FontWeight.w400,
   );
+  // TextStyle secondaryThemeTextColor
+    static final TextStyle btnNavActive = TextStyle(
+    fontFamily: FontFamily.dana,
+    fontSize: AppDimes.navigationAppBarTitleSize,
+    color: AppColors.btmNavActiveItem,
+    fontWeight: FontWeight.w400,
+  );
+  static final TextStyle btnNavInactive = TextStyle(
+    fontFamily: FontFamily.dana,
+    fontSize: AppDimes.navigationAppBarTitleSize,
+    color: AppColors.btmNavInActiveItem,
+    fontWeight: FontWeight.w400,
+  );
 }
