@@ -20,7 +20,7 @@ class BtnNavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         color: AppColors.btmNavColor,
         child: Padding(
