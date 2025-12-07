@@ -23,75 +23,110 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int selectedIndex = BtnNavScreenIndex.home;
+  final GlobalKey<NavigatorState> _homeKey = GlobalKey<NavigatorState>();
+  final GlobalKey<NavigatorState> _basketKey = GlobalKey<NavigatorState>();
+  final GlobalKey<NavigatorState> _profileKey = GlobalKey<NavigatorState>();
+  late final map = {
+    BtnNavScreenIndex.home: _homeKey,
+    BtnNavScreenIndex.basket: _basketKey,
+    BtnNavScreenIndex.profile: _profileKey,
+  };
+
+  void _onPopInvoked(bool didPop) {
+    if (didPop) return;
+
+    final navigator = map[selectedIndex]!.currentState;
+    if (navigator != null && navigator.canPop()) {
+      navigator.pop();
+    } else {
+      Navigator.of(context).maybePop();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: AppDimes.navigationAppBarHight,
-              child: IndexedStack(
-                index: selectedIndex,
-                children: [
-                  Navigator(
-                    onGenerateRoute: (settings) =>
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
-                  ),
-                  BasketScreen(),
-                  ProfileScreen(),
-                ],
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                color: AppColors.btmNavColor,
-                height: AppDimes.navigationAppBarHight,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) => _onPopInvoked(didPop),
+      child: Scaffold(
+        body: SafeArea(
+          child: Stack(
+            children: [
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: AppDimes.navigationAppBarHight,
+                child: IndexedStack(
+                  index: selectedIndex,
                   children: [
-                    BtnNavItem(
-                      iconSvgPath: Assets.svg.user,
-                      isActive: selectedIndex == BtnNavScreenIndex.profile,
-                      label: AppStrings.profile,
-                      onTap: () =>
-                          btnNavOnPressed(index: BtnNavScreenIndex.profile),
+                    Navigator(
+                      key: _homeKey,
+                      onGenerateRoute: (settings) =>
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
                     ),
-                    BtnNavItem(
-                      iconSvgPath: Assets.svg.cart,
-                      isActive: selectedIndex == BtnNavScreenIndex.basket,
-                      label: AppStrings.basket,
-                      onTap: () =>
-                          btnNavOnPressed(index: BtnNavScreenIndex.basket),
+                    Navigator(
+                      key: _basketKey,
+                      onGenerateRoute: (settings) => MaterialPageRoute(
+                        builder: (context) => BasketScreen(),
+                      ),
                     ),
-                    BtnNavItem(
-                      iconSvgPath: Assets.svg.home,
-                      isActive: selectedIndex == BtnNavScreenIndex.home,
-                      label: AppStrings.home,
-                      onTap: () =>
-                          btnNavOnPressed(index: BtnNavScreenIndex.home),
+                    Navigator(
+                      key: _profileKey,
+                      onGenerateRoute: (settings) => MaterialPageRoute(
+                        builder: (context) => ProfileScreen(),
+                      ),
                     ),
                   ],
                 ),
               ),
-            ),
-          ],
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Container(
+                  color: AppColors.btmNavColor,
+                  height: AppDimes.navigationAppBarHight,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      BtnNavItem(
+                        iconSvgPath: Assets.svg.user,
+                        isActive: selectedIndex == BtnNavScreenIndex.profile,
+                        label: AppStrings.profile,
+                        onTap: () =>
+                            btnNavOnPressed(index: BtnNavScreenIndex.profile),
+                      ),
+                      BtnNavItem(
+                        iconSvgPath: Assets.svg.cart,
+                        isActive: selectedIndex == BtnNavScreenIndex.basket,
+                        label: AppStrings.basket,
+                        onTap: () =>
+                            btnNavOnPressed(index: BtnNavScreenIndex.basket),
+                      ),
+                      BtnNavItem(
+                        iconSvgPath: Assets.svg.home,
+                        isActive: selectedIndex == BtnNavScreenIndex.home,
+                        label: AppStrings.home,
+                        onTap: () =>
+                            btnNavOnPressed(index: BtnNavScreenIndex.home),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  btnNavOnPressed({required index}) {
+  void btnNavOnPressed({required int index}) {
     setState(() {
       selectedIndex = index;
+      
     });
   }
 }
