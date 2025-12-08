@@ -32,12 +32,19 @@ class _MainScreenState extends State<MainScreen> {
     BtnNavScreenIndex.profile: _profileKey,
   };
 
+  final List<int> _routeHistory = [BtnNavScreenIndex.home];
+
   void _onPopInvoked(bool didPop) {
     if (didPop) return;
 
     final navigator = map[selectedIndex]!.currentState;
     if (navigator != null && navigator.canPop()) {
       navigator.pop();
+    } else if (_routeHistory.length > 1) {
+      setState(() {
+        _routeHistory.removeLast();
+        selectedIndex = _routeHistory.last;
+      });
     } else {
       Navigator.of(context).maybePop();
     }
@@ -126,7 +133,7 @@ class _MainScreenState extends State<MainScreen> {
   void btnNavOnPressed({required int index}) {
     setState(() {
       selectedIndex = index;
-      
+      _routeHistory.add(selectedIndex);
     });
   }
 }
