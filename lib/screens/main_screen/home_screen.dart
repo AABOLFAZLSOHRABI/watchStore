@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:watch_store/res/colors.dart';
+import 'package:watch_store/widgets/app_slider.dart';
+import 'package:watch_store/widgets/search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,15 +10,14 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
-        child: Column(children: [
-
-          Container(decoration: BoxDecoration(
-            color: AppColors.searchBar,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [],
-            
-          ),)
-        ])),
+        child: Column(
+          children: [
+            AppSearchBar(onTab: () {}),
+            AppSlider(),
+          ],
+        ),
+      ),
     );
   }
 }
+
