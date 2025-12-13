@@ -39,6 +39,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   carousel_slider: ^5.1.1
   cached_network_image: ^3.4.1
+  skeletonizer: ^2.1.1
 
 dev_dependencies:
   flutter_test:

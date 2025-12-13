@@ -58,8 +58,8 @@ class $AssetsSvgGen {
   /// File path: assets/svg/cart.svg
   String get cart => 'assets/svg/cart.svg';
 
-  /// File path: assets/svg/clasic.svg
-  String get clasic => 'assets/svg/clasic.svg';
+  /// File path: assets/svg/classic.svg
+  String get classic => 'assets/svg/classic.svg';
 
   /// File path: assets/svg/close.svg
   String get close => 'assets/svg/close.svg';
@@ -121,7 +121,7 @@ class $AssetsSvgGen {
     back,
     cancelled,
     cart,
-    clasic,
+    classic,
     close,
     delete,
     delivered,

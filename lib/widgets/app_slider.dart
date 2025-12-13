@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:watch_store/res/dimes.dart';
+import 'package:watch_store/widgets/loading.dart';
 
 final List<String> imgList = [
   "https://ticktackgallery.com/media/wysiwyg/ticktackbanner/men.png",
@@ -32,11 +33,11 @@ class _AppSliderState extends State<AppSlider> {
               carouselController: _controller,
               items: imgList
                   .map(
-                    (e) => Padding(
+                    (url) => Padding(
                       padding: EdgeInsets.all(AppDimes.smallRadius),
-                      child: ClipRRect(
+                      child: SkeletonNetworkImage(
+                        url: url,
                         borderRadius: BorderRadius.circular(AppDimes.avatar),
-                        child: Image.network(e, fit: BoxFit.cover),
                       ),
                     ),
                   )
