@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:watch_store/components/extention.dart';
 import 'package:watch_store/components/text_style.dart';
 import 'package:watch_store/res/colors.dart';
@@ -49,7 +50,7 @@ class GetOtpScreen extends StatelessWidget {
               MainButton(
                 text: AppStrings.next,
                 onTaPeressed: () =>
-                    Navigator.pushNamed(context, ScreenNames.registerScreen),
+                    context.push(ScreenNames.registerScreen),
               ),
             ],
           ),

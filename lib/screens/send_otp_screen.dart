@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:watch_store/components/extention.dart';
 import 'package:watch_store/res/strings.dart';
 import 'package:watch_store/route/names.dart';
@@ -30,7 +31,7 @@ class SendOtpScreen extends StatelessWidget {
               24.h.height,
               MainButton(
                 text: AppStrings.sendOtpCode,
-                onTaPeressed: () => Navigator.pushNamed(context, ScreenNames.getOtpScreen),
+                onTaPeressed: () => context.push(ScreenNames.getOtpScreen),
               ),
             ],
           ),

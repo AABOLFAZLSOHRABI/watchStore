@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:watch_store/components/extention.dart';
 import 'package:watch_store/res/strings.dart';
 import 'package:watch_store/route/names.dart';
@@ -56,7 +57,12 @@ class RegisterScreen extends StatelessWidget {
                     prefixIcon: Icon(Icons.location_on),
                   ),
                   29.h.height,
-                  MainButton(text: AppStrings.next, onTaPeressed: () {Navigator.pushNamed(context, ScreenNames.mainScreen);}),
+                  MainButton(
+                    text: AppStrings.next,
+                    onTaPeressed: () {
+                      context.go(ScreenNames.mainScreen);
+                    },
+                  ),
                   143.h.height,
                 ],
               ),

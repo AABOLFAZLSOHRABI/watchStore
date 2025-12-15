@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:watch_store/components/theme.dart';
-import 'package:watch_store/route/names.dart';
 import 'package:watch_store/route/routes.dart';
 
 void main() {
@@ -20,12 +19,11 @@ class MyApp extends StatelessWidget {
       minTextAdapt: false,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
+        return MaterialApp.router(
+          routerConfig: appRouter,
           debugShowCheckedModeBanner: false,
           title: 'Watch Store',
           theme: lightTheme,
-          initialRoute: ScreenNames.root,
-          routes: routes,
         );
       },
     );
