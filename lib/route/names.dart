@@ -5,4 +5,6 @@ abstract class ScreenNames {
   static const mainScreen = "/mainScreen";
   static const productListScreen = "/productListScreen";
   static const productSingleScreen = "/productSingleScreen";
+  static const basketScreen = "/basketScreen";
+  static const profileScreen = "/profileScreen";
 }

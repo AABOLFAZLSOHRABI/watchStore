@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/src/route.dart';
 import 'package:watch_store/gen/assets.gen.dart';
 import 'package:watch_store/res/colors.dart';
 import 'package:watch_store/res/dimes.dart';
@@ -15,7 +16,7 @@ abstract class BtnNavScreenIndex {
 }
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  const MainScreen({super.key, required StatefulNavigationShell navigationShell});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
