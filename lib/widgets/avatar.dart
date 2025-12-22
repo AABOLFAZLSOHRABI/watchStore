@@ -17,7 +17,7 @@ class AppAvatar extends StatelessWidget {
           child: Image.asset(Assets.png.avatar.path),
         ),
         20.h.height,
-        Text(AppStrings.chooseProfileImage, style: LightAppTestState.avatar),
+        Text(AppStrings.chooseProfileImage, style: AppTextStyle.avatar),
       ],
     );
   }

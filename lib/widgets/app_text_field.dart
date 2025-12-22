@@ -35,8 +35,8 @@ class AppTextField extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(prefixText, style: LightAppTestState.title),
-                Text(label, style: LightAppTestState.title),
+                Text(prefixText, style: AppTextStyle.title),
+                Text(label, style: AppTextStyle.title),
               ],
             ),
           ),
@@ -52,7 +52,7 @@ class AppTextField extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: hint,
                 prefixIcon: prefixIcon,
-                hintStyle: LightAppTestState.hint,
+                hintStyle: AppTextStyle.hint,
               ),
             ),
           ),

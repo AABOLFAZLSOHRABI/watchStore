@@ -23,7 +23,7 @@ class RegistrationAppBar extends StatelessWidget
       actions: [
         Padding(
           padding: EdgeInsets.only(right: AppDimes.largeW),
-          child: Text(AppStrings.register, style: LightAppTestState.title),
+          child: Text(AppStrings.register, style: AppTextStyle.title),
         ),
       ],
     );

@@ -34,7 +34,7 @@ class AppSearchBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SvgPicture.asset(Assets.svg.search),
-              Text(AppStrings.searchProduct, style: LightAppTestState.hint),
+              Text(AppStrings.searchProduct, style: AppTextStyle.hint),
               AppLogo(size: LogoSize.small),
             ],
           ),

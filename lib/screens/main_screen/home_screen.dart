@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:watch_store/components/extention.dart';
+import 'package:watch_store/components/text_style.dart';
 import 'package:watch_store/gen/assets.gen.dart';
 import 'package:watch_store/res/colors.dart';
 import 'package:watch_store/res/dimes.dart';
@@ -23,7 +25,8 @@ class HomeScreen extends StatelessWidget {
             AppSlider(),
             // cat
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 GatWidget(
                   title: AppStrings.desktop,
@@ -69,8 +72,67 @@ class HomeScreen extends StatelessWidget {
                         return Container(
                           height: 289.h,
                           width: 162.w,
-                          color: Colors.grey,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                              AppDimes.mediumRadius,
+                            ),
+                            gradient: LinearGradient(
+                              begin: AlignmentGeometry.topCenter,
+                              end: AlignmentGeometry.bottomCenter,
+                              colors: AppColors.productBgGradient,
+                            ),
+                          ),
                           margin: EdgeInsets.all(12.h),
+                          child: Column(
+                            children: [
+                              Image.asset(Assets.png.unnamed.path),
+                              Align(
+                                alignment: AlignmentGeometry.centerRight,
+                                child: Text(
+                                  "ساعت کلاسیک مردانه",
+                                  style: AppTextStyle.title,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "${1500000.separateWithComma} تومان",
+                                        style: AppTextStyle.title,
+                                      ),
+                                      Text(
+                                        18000000.separateWithComma,
+                                        style: AppTextStyle.oldPrice,
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    color: Colors.red,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(
+                                        AppDimes.largeRadius,
+                                      ),
+                                    ),
+                                    child: const Text("20%"),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                height: 2.h,
+                                width: double.infinity,
+                                color: Colors.blue,
+                              ),
+                              Text(
+                                "26:26:25",
+                                style: AppTextStyle.title.copyWith(
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ],
+                          ),
                         );
                       },
                     ),

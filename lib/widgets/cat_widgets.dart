@@ -36,7 +36,7 @@ class GatWidget extends StatelessWidget {
 
             child: SvgPicture.asset(icon),
           ),
-          Text(title, style: LightAppTestState.title),
+          Text(title, style: AppTextStyle.title),
         ],
       ),
     );

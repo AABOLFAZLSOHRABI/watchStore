@@ -41,8 +41,8 @@ class BtnNavItem extends StatelessWidget {
               Text(
                 label,
                 style: isActive
-                    ? LightAppTestState.btnNavActive
-                    : LightAppTestState.btnNavInactive,
+                    ? AppTextStyle.btnNavActive
+                    : AppTextStyle.btnNavInactive,
               ),
             ],
           ),

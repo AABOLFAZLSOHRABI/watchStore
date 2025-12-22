@@ -30,7 +30,7 @@ class GetOtpScreen extends StatelessWidget {
                   AppStrings.replace,
                   "0912566",
                 ),
-                style: LightAppTestState.title,
+                style: AppTextStyle.title,
               ),
 
               14.h.height,
