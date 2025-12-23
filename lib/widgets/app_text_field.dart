@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:watch_store/components/extention.dart';
 import 'package:watch_store/components/text_style.dart';
 import 'package:watch_store/res/dimes.dart';
@@ -26,12 +27,12 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(AppDimes.smallH),
+      padding: EdgeInsets.all(AppDimes.smallH.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           SizedBox(
-            width: AppDimes.textFieldWidth,
+            width: AppDimes.textFieldWidth.w,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -40,10 +41,10 @@ class AppTextField extends StatelessWidget {
               ],
             ),
           ),
-          AppDimes.mediumH.height,
+          AppDimes.mediumH.h.height,
           SizedBox(
-            height: AppDimes.textFieldHeight,
-            width: AppDimes.textFieldWidth,
+            height: AppDimes.textFieldHeight.h,
+            width: AppDimes.textFieldWidth.w,
             child: TextField(
               textAlign: textAlign,
               textAlignVertical: TextAlignVertical.center,

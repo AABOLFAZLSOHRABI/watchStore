@@ -34,10 +34,10 @@ class _AppSliderState extends State<AppSlider> {
               items: imgList
                   .map(
                     (url) => Padding(
-                      padding: EdgeInsets.all(AppDimes.smallRadius),
+                      padding: EdgeInsets.all(AppDimes.smallRadius.r),
                       child: SkeletonNetworkImage(
                         url: url,
-                        borderRadius: BorderRadius.circular(AppDimes.avatar),
+                        borderRadius: BorderRadius.circular(AppDimes.avatar.sp),
                       ),
                     ),
                   )
@@ -54,27 +54,29 @@ class _AppSliderState extends State<AppSlider> {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: imgList.asMap().entries.map((e) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: GestureDetector(
-                  onTap: () {
-                    _controller.animateToPage(e.key);
-                  },
-                  child: Container(
-                    width: 8,
-                    height: 8,
-                    margin: EdgeInsets.symmetric(horizontal: 2),
-                    decoration: BoxDecoration(
-                      color: _current == e.key ? Colors.black : Colors.grey,
-                      shape: BoxShape.circle,
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: imgList.asMap().entries.map((e) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      _controller.animateToPage(e.key);
+                    },
+                    child: Container(
+                      width: 8,
+                      height: 8,
+                      margin: EdgeInsets.symmetric(horizontal: 2),
+                      decoration: BoxDecoration(
+                        color: _current == e.key ? Colors.black : Colors.grey,
+                        shape: BoxShape.circle,
+                      ),
                     ),
                   ),
-                ),
-              );
-            }).toList(),
+                );
+              }).toList(),
+            ),
           ),
         ],
       ),

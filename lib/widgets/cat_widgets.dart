@@ -22,19 +22,21 @@ class GatWidget extends StatelessWidget {
       onTap: onTap,
       child: Column(
         children: [
-          Container(
-            height: 61.h,
-            width: 61.w,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: bgColor,
+          Expanded(
+            child: Container(
+              height: 61.h,
+              width: 61.w,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: bgColor,
+                ),
+                borderRadius: BorderRadius.circular(AppDimes.largeRadius.r),
               ),
-              borderRadius: BorderRadius.circular(AppDimes.largeRadius),
+            
+              child: SvgPicture.asset(icon),
             ),
-
-            child: SvgPicture.asset(icon),
           ),
           Text(title, style: AppTextStyle.title),
         ],

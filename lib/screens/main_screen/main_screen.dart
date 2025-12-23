@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:watch_store/gen/assets.gen.dart';
 import 'package:watch_store/res/colors.dart';
@@ -23,7 +24,7 @@ class MainScreen extends StatelessWidget {
       body: SafeArea(child: navigationShell),
       bottomNavigationBar: Container(
         color: AppColors.btmNavColor,
-        height: AppDimes.navigationAppBarHight,
+        height: AppDimes.navigationAppBarHight.h,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,

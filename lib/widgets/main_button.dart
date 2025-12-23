@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:watch_store/components/button_style.dart';
 import 'package:watch_store/components/text_style.dart';
 import 'package:watch_store/res/dimes.dart';
@@ -10,8 +11,8 @@ class MainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: AppDimes.buttonHeight,
-      width: AppDimes.buttonWidth,
+      height: AppDimes.buttonHeight.h,
+      width: AppDimes.buttonWidth.w,
       child: ElevatedButton(
         onPressed: onTaPeressed,
         style: AppButtonStyle.mainButtonStyle,

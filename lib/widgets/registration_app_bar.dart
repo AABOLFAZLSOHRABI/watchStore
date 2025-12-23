@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:watch_store/components/text_style.dart';
 import 'package:watch_store/res/colors.dart';
 import 'package:watch_store/res/dimes.dart';
@@ -13,7 +14,7 @@ class RegistrationAppBar extends StatelessWidget
     return AppBar(
       backgroundColor: AppColors.appBar,
       scrolledUnderElevation: 0,
-      toolbarHeight: AppDimes.registrationAppBarHeight,
+      toolbarHeight: AppDimes.registrationAppBarHeight.h,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back),
         // back to screen 
@@ -22,7 +23,7 @@ class RegistrationAppBar extends StatelessWidget
       title: const SizedBox(),
       actions: [
         Padding(
-          padding: EdgeInsets.only(right: AppDimes.largeW),
+          padding: EdgeInsets.only(right: AppDimes.largeW.w),
           child: Text(AppStrings.register, style: AppTextStyle.title),
         ),
       ],
@@ -30,5 +31,5 @@ class RegistrationAppBar extends StatelessWidget
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(AppDimes.registrationAppBarHeight);
+  Size get preferredSize => Size.fromHeight(AppDimes.registrationAppBarHeight.h);
 }

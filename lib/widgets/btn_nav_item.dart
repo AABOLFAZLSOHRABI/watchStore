@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:watch_store/components/text_style.dart';
 import 'package:watch_store/res/colors.dart';
@@ -37,7 +38,7 @@ class BtnNavItem extends StatelessWidget {
                   BlendMode.srcIn,
                 ),
               ),
-              SizedBox(height: AppDimes.smallH),
+              SizedBox(height: AppDimes.smallH.h),
               Text(
                 label,
                 style: isActive

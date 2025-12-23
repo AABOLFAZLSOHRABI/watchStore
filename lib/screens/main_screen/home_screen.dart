@@ -70,24 +70,26 @@ class HomeScreen extends StatelessWidget {
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return Container(
-                          height: 289.h,
+                          // height: 289.h,
                           width: 162.w,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(
-                              AppDimes.mediumRadius,
+                              AppDimes.mediumRadius.r,
                             ),
                             gradient: LinearGradient(
-                              begin: AlignmentGeometry.topCenter,
-                              end: AlignmentGeometry.bottomCenter,
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
                               colors: AppColors.productBgGradient,
                             ),
                           ),
                           margin: EdgeInsets.all(12.h),
                           child: Column(
                             children: [
-                              Image.asset(Assets.png.unnamed.path),
+                              Expanded(
+                                child: Image.asset(Assets.png.unnamed.path),
+                              ),
                               Align(
-                                alignment: AlignmentGeometry.centerRight,
+                                alignment: Alignment.centerRight,
                                 child: Text(
                                   "ساعت کلاسیک مردانه",
                                   style: AppTextStyle.title,
@@ -95,25 +97,27 @@ class HomeScreen extends StatelessWidget {
                               ),
                               Row(
                                 children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "${1500000.separateWithComma} تومان",
-                                        style: AppTextStyle.title,
-                                      ),
-                                      Text(
-                                        18000000.separateWithComma,
-                                        style: AppTextStyle.oldPrice,
-                                      ),
-                                    ],
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "${1500000.separateWithComma} تومان",
+                                          style: AppTextStyle.title,
+                                        ),
+                                        Text(
+                                          18000000.separateWithComma,
+                                          style: AppTextStyle.oldPrice,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                   Container(
-                                    color: Colors.red,
                                     decoration: BoxDecoration(
+                                      color: Colors.red,
                                       borderRadius: BorderRadius.circular(
-                                        AppDimes.largeRadius,
+                                        AppDimes.largeRadius.r,
                                       ),
                                     ),
                                     child: const Text("20%"),
@@ -125,10 +129,12 @@ class HomeScreen extends StatelessWidget {
                                 width: double.infinity,
                                 color: Colors.blue,
                               ),
-                              Text(
-                                "26:26:25",
-                                style: AppTextStyle.title.copyWith(
-                                  color: Colors.blue,
+                              Expanded(
+                                child: Text(
+                                  "26:26:25",
+                                  style: AppTextStyle.title.copyWith(
+                                    color: Colors.blue,
+                                  ),
                                 ),
                               ),
                             ],

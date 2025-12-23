@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:watch_store/components/text_style.dart';
 import 'package:watch_store/gen/assets.gen.dart';
@@ -13,7 +14,7 @@ class AppSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(AppDimes.mediumRadius),
+      padding: EdgeInsets.all(AppDimes.mediumRadius.r),
       child: InkWell(
         onTap: onTab,
         child: Container(
@@ -33,9 +34,9 @@ class AppSearchBar extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SvgPicture.asset(Assets.svg.search),
-              Text(AppStrings.searchProduct, style: AppTextStyle.hint),
-              AppLogo(size: LogoSize.small),
+              Flexible(child: SvgPicture.asset(Assets.svg.search)),
+              Expanded(child: Text(AppStrings.searchProduct, style: AppTextStyle.hint)),
+              Expanded(child: AppLogo(size: LogoSize.small)),
             ],
           ),
         ),
