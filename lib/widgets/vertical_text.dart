@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:watch_store/components/extention.dart';
+import 'package:watch_store/components/text_style.dart';
 import 'package:watch_store/gen/assets.gen.dart';
+import 'package:watch_store/res/dimes.dart';
 import 'package:watch_store/res/strings.dart';
+import 'package:watch_store/route/names.dart';
 
 class VerticalText extends StatelessWidget {
   const VerticalText({super.key});
@@ -14,13 +20,21 @@ class VerticalText extends StatelessWidget {
         quarterTurns: -1,
         child: Column(
           children: [
-            Row(
-              children: [
-                SvgPicture.asset(Assets.svg.back),
-                Text(AppStrings.viewAll),
-              ],
+            InkWell(
+              onTap: () => context.push(ScreenNames.productListScreen),
+              child: Row(
+                children: [
+                  Transform.rotate(
+                    angle: 1.5,
+                    child: SvgPicture.asset(Assets.svg.back),
+                  ),
+                  AppDimes.smallW.w.width,
+                  Text(AppStrings.viewAll),
+                ],
+              ),
             ),
-            Text(AppStrings.amazing),
+            AppDimes.mediumH.h.height,
+            Text(AppStrings.amazing, style: AppTextStyle.amazing),
           ],
         ),
       ),

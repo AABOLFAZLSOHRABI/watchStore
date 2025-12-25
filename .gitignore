@@ -43,3 +43,4 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+.zencoder/chats/78b01fe5-4c3e-4f8a-8ca2-7ce222fad5fb/plan.md

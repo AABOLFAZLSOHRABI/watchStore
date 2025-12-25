@@ -34,7 +34,7 @@ abstract class AppStrings {
   static const String home = "خانه";
   static const String basket = "سبد خرید";
   static const String profile = "پروفایل";
-  static const String topSells = "پرفروش‌ها";
+  static const String topSells = "پرفروش‌ ترین ها";
   static const String newestProduct = "جدیدترین محصولات";
   static const String features = "خصوصیات";
   static const String review = "نقد و بررسی";

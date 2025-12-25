@@ -28,7 +28,8 @@ class _AppSliderState extends State<AppSlider> {
       width: 355.w,
       child: Column(
         children: [
-          Expanded(
+          SizedBox(
+            height: 230.h,
             child: CarouselSlider(
               carouselController: _controller,
               items: imgList
@@ -54,7 +55,8 @@ class _AppSliderState extends State<AppSlider> {
               ),
             ),
           ),
-          Expanded(
+          SizedBox(
+            height: 30.h,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: imgList.asMap().entries.map((e) {

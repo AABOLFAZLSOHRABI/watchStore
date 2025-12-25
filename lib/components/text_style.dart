@@ -29,6 +29,18 @@ abstract class AppTextStyle {
     color: AppColors.mainButtonText,
     fontWeight: FontWeight.w500,
   );
+  static final TextStyle offer = TextStyle(
+    fontFamily: FontFamily.dana,
+    fontSize: AppDimes.avatar.sp,
+    color: AppColors.mainButtonText,
+    fontWeight: FontWeight.w300,
+  );
+  static final TextStyle amazing = TextStyle(
+    fontFamily: FontFamily.dana,
+    fontSize: AppDimes.amazing.sp,
+    color: AppColors.amazingColor,
+    fontWeight: FontWeight.w700,
+  );
   static final TextStyle primaryThemeTextColor = TextStyle(
     fontFamily: FontFamily.dana,
     fontSize: AppDimes.title.sp,

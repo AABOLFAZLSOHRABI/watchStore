@@ -11,6 +11,7 @@ abstract class AppDimes {
   static double get title => 14;
   static double get avatar => 11;
   static double get button => 15;
+  static double get amazing => 26;
 
   // text file hint size font
   static double get textFontHint => 11;
@@ -43,6 +44,8 @@ abstract class AppDimes {
 
   // size height app bar screen register 
   static double registrationAppBarHeight = 67;
+  
+  static double customAppBarHeight = 59.04;
   // Navigation App bar size
   static double navigationAppBarHight = 83;
   // Navigation App bar title size

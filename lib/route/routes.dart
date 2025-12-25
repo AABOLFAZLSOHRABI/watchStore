@@ -26,9 +26,17 @@ final appRouter = GoRouter(
             GoRoute(
               path: ScreenNames.mainScreen,
               builder: (context, state) => const HomeScreen(),
+              routes: [
+                GoRoute(
+                  name: "productList",
+                  path: "productListScreen",
+                  builder: (context, state) => const ProductListScreen(),
+                ),
+              ],
             ),
           ],
         ),
+
         StatefulShellBranch(
           routes: [
             GoRoute(
@@ -63,10 +71,7 @@ final appRouter = GoRouter(
       builder: (context, state) => RegisterScreen(),
     ),
     GoRoute(
-      path: ScreenNames.productListScreen,
-      builder: (context, state) => const ProductListScreen(),
-    ),
-    GoRoute(
+      name: "productSingleScreen",
       path: ScreenNames.productSingleScreen,
       builder: (context, state) => const ProductSingleScreen(productId: ''),
     ),
