@@ -5,6 +5,7 @@ import 'package:watch_store/gen/assets.gen.dart';
 import 'package:watch_store/res/colors.dart';
 import 'package:watch_store/res/dimes.dart';
 import 'package:watch_store/res/strings.dart';
+import 'package:watch_store/widgets/badge_cart.dart';
 import 'package:watch_store/widgets/btn_nav_item.dart';
 
 abstract class BtnNavScreenIndex {
@@ -20,6 +21,8 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentIndex = navigationShell.currentIndex;
+
     return Scaffold(
       body: SafeArea(child: navigationShell),
       bottomNavigationBar: Container(
@@ -31,19 +34,24 @@ class MainScreen extends StatelessWidget {
           children: [
             BtnNavItem(
               iconSvgPath: Assets.svg.user,
-              isActive: navigationShell.currentIndex == BtnNavScreenIndex.profile,
+              isActive: currentIndex == BtnNavScreenIndex.profile,
               label: AppStrings.profile,
               onTap: () => navigationShell.goBranch(BtnNavScreenIndex.profile),
             ),
             BtnNavItem(
-              iconSvgPath: Assets.svg.cart,
-              isActive: navigationShell.currentIndex == BtnNavScreenIndex.basket,
+              customIcon: BadgeCartAppBar(
+                count: 3,
+                iconColor: currentIndex == BtnNavScreenIndex.basket
+                    ? AppColors.btmNavActiveItem
+                    : AppColors.btmNavInActiveItem,
+              ),
+              isActive: currentIndex == BtnNavScreenIndex.basket,
               label: AppStrings.basket,
               onTap: () => navigationShell.goBranch(BtnNavScreenIndex.basket),
             ),
             BtnNavItem(
               iconSvgPath: Assets.svg.home,
-              isActive: navigationShell.currentIndex == BtnNavScreenIndex.home,
+              isActive: currentIndex == BtnNavScreenIndex.home,
               label: AppStrings.home,
               onTap: () => navigationShell.goBranch(BtnNavScreenIndex.home),
             ),

@@ -21,8 +21,22 @@ class AppSlider extends StatefulWidget {
 class _AppSliderState extends State<AppSlider> {
   final CarouselSliderController _controller = CarouselSliderController();
   int _current = 0;
+  List<Widget>? _cachedImageWidgets;
+  
   @override
   Widget build(BuildContext context) {
+    _cachedImageWidgets ??= imgList
+        .map(
+          (url) => Padding(
+            padding: EdgeInsets.all(AppDimes.smallRadius.r),
+            child: SkeletonNetworkImage(
+              url: url,
+              borderRadius: BorderRadius.circular(AppDimes.avatar.sp),
+            ),
+          ),
+        )
+        .toList();
+    
     return SizedBox(
       height: 260.h,
       width: 355.w,
@@ -32,17 +46,7 @@ class _AppSliderState extends State<AppSlider> {
             height: 230.h,
             child: CarouselSlider(
               carouselController: _controller,
-              items: imgList
-                  .map(
-                    (url) => Padding(
-                      padding: EdgeInsets.all(AppDimes.smallRadius.r),
-                      child: SkeletonNetworkImage(
-                        url: url,
-                        borderRadius: BorderRadius.circular(AppDimes.avatar.sp),
-                      ),
-                    ),
-                  )
-                  .toList(),
+              items: _cachedImageWidgets!,
               options: CarouselOptions(
                 viewportFraction: 1.0,
                 autoPlay: true,
@@ -59,25 +63,24 @@ class _AppSliderState extends State<AppSlider> {
             height: 30.h,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: imgList.asMap().entries.map((e) {
-                return Padding(
+              children: List.generate(
+                imgList.length,
+                (index) => Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
-                    onTap: () {
-                      _controller.animateToPage(e.key);
-                    },
+                    onTap: () => _controller.animateToPage(index),
                     child: Container(
                       width: 8,
                       height: 8,
-                      margin: EdgeInsets.symmetric(horizontal: 2),
+                      margin: const EdgeInsets.symmetric(horizontal: 2),
                       decoration: BoxDecoration(
-                        color: _current == e.key ? Colors.black : Colors.grey,
+                        color: _current == index ? Colors.black : Colors.grey,
                         shape: BoxShape.circle,
                       ),
                     ),
                   ),
-                );
-              }).toList(),
+                ),
+              ),
             ),
           ),
         ],

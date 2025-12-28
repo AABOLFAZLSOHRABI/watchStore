@@ -15,74 +15,72 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            AppSearchBar(onTab: () {}),
-            AppSlider(),
-            // cat
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                GatWidget(
-                  title: AppStrings.desktop,
-                  icon: Assets.svg.desktop,
-                  bgColor: AppColors.catDesktopColors,
-                  onTap: () {},
-                ),
-                GatWidget(
-                  title: AppStrings.digital,
-                  icon: Assets.svg.digital,
-                  bgColor: AppColors.catDigitalColors,
-                  onTap: () {},
-                ),
-                GatWidget(
-                  title: AppStrings.smart,
-                  icon: Assets.svg.smart,
-                  bgColor: AppColors.catSmartColors,
-                  onTap: () {},
-                ),
-                GatWidget(
-                  title: AppStrings.classic,
-                  icon: Assets.svg.classic,
-                  bgColor: AppColors.catClassicColors,
-                  onTap: () {},
-                ),
-              ],
-            ),
-
-            SizedBox(height: AppDimes.mediumH),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              reverse: true,
-              child: Row(
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              AppSearchBar(onTab: () {}),
+              const AppSlider(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 289.h,
-                    child: ListView.builder(
-                      physics: ClampingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 8,
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return ProductItem(
-                          titleProduct: 'ساعت کلاسیک مردانه',
-                          price: 120000,
-                          oldPrice: 150000,
-                          timeLeft: "10:26",
-                          discount: 30,
-                        );
-                      },
-                    ),
+                  GatWidget(
+                    title: AppStrings.desktop,
+                    icon: Assets.svg.desktop,
+                    bgColor: AppColors.catDesktopColors,
+                    onTap: () {},
                   ),
-                  VerticalText(),
+                  GatWidget(
+                    title: AppStrings.digital,
+                    icon: Assets.svg.digital,
+                    bgColor: AppColors.catDigitalColors,
+                    onTap: () {},
+                  ),
+                  GatWidget(
+                    title: AppStrings.smart,
+                    icon: Assets.svg.smart,
+                    bgColor: AppColors.catSmartColors,
+                    onTap: () {},
+                  ),
+                  GatWidget(
+                    title: AppStrings.classic,
+                    icon: Assets.svg.classic,
+                    bgColor: AppColors.catClassicColors,
+                    onTap: () {},
+                  ),
                 ],
               ),
-            ),
-          ],
+              SizedBox(height: AppDimes.mediumH),
+              SizedBox(
+                height: 320.h,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: ListView.builder(
+                        physics: const ClampingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        reverse: true,
+                        itemCount: 8,
+                        itemBuilder: (context, index) {
+                          return const ProductItem(
+                            titleProduct: 'ساعت کلاسیک مردانه',
+                            price: 120000,
+                            oldPrice: 150000,
+                            timeLeft: "10:26",
+                            discount: 30,
+                          );
+                        },
+                      ),
+                    ),
+                    const VerticalText(),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -33,7 +33,7 @@ class GatWidget extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(AppDimes.largeRadius.r),
             ),
-            child: SvgPicture.asset(icon),
+            child: SvgPicture.asset(icon, fit: BoxFit.none),
           ),
           Text(title, style: AppTextStyle.title),
         ],

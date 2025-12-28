@@ -73,7 +73,7 @@ final appRouter = GoRouter(
     GoRoute(
       name: "productSingleScreen",
       path: ScreenNames.productSingleScreen,
-      builder: (context, state) => const ProductSingleScreen(productId: ''),
+      builder: (context, state) => const ProductSingleScreen(),
     ),
   ],
 );

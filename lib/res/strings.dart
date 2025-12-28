@@ -38,7 +38,7 @@ abstract class AppStrings {
   static const String newestProduct = "جدیدترین محصولات";
   static const String features = "خصوصیات";
   static const String review = "نقد و بررسی";
-  static const String commnets = "نظرات";
+  static const String comments = "نظرات";
   static const String addToBasket = "افزودن به سبد خرید";
   static const String count = "عدد";
   static const String totalPrice = "مجموع  $replace تومان";
@@ -46,9 +46,10 @@ abstract class AppStrings {
   static const String userProfile = "پروفایل کاربر";
   static const String activeAddress = "آدرس فعال";
   static const String termOfService = "قوانین و مقررات";
-  static const String inProccess = "درحال پردازش";
+  static const String inProcess = "درحال پردازش";
   static const String cancelled = "لغو شده";
   static const String delivered = "تحویل شده";
-  static const String lurem =
+    static const String productName = "نام محصول";
+  static const String lure =
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ ";
 }

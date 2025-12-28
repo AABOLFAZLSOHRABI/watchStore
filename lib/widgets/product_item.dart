@@ -9,7 +9,6 @@ import 'package:watch_store/res/dimes.dart';
 class ProductItem extends StatelessWidget {
   const ProductItem({
     super.key,
-
     required this.titleProduct,
     required this.price,
     this.oldPrice = 0,
@@ -23,18 +22,19 @@ class ProductItem extends StatelessWidget {
   final int discount;
   final String timeLeft;
 
+  static const _gradient = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: AppColors.productBgGradient,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 289.h,
       width: 162.w,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppDimes.mediumRadius.r),
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: AppColors.productBgGradient,
-        ),
+        gradient: _gradient,
       ),
       margin: EdgeInsets.all(12.h),
       child: Padding(
@@ -61,7 +61,7 @@ class ProductItem extends StatelessWidget {
                         style: AppTextStyle.title,
                       ),
                       Visibility(
-                        visible: oldPrice > 0?true:false,
+                        visible: oldPrice > 0,
                         child: Text(
                           oldPrice.separateWithComma,
                           style: AppTextStyle.oldPrice,
@@ -71,7 +71,7 @@ class ProductItem extends StatelessWidget {
                   ),
                 ),
                 Visibility(
-                  visible: discount != 0 ? true : false,
+                  visible: discount != 0,
                   child: Container(
                     width: 34.w,
                     height: 18.h,
@@ -91,13 +91,13 @@ class ProductItem extends StatelessWidget {
             ),
             AppDimes.smallH.h.height,
             Visibility(
-              visible: timeLeft != "" ? true : false,
+              visible: timeLeft.isNotEmpty,
               child: Container(height: 2.h, width: 112.w, color: Colors.blue)),
             Flexible(
               child: Visibility(
-                visible: timeLeft != "" ? true : false,
+                visible: timeLeft.isNotEmpty,
                 child: Text(
-                  timeLeft.toString(),
+                  timeLeft,
                   style: AppTextStyle.title.copyWith(color: Colors.blue),
                 ),
               ),

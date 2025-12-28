@@ -11,6 +11,12 @@ abstract class AppTextStyle {
     color: AppColors.title,
     fontWeight: FontWeight.w400,
   );
+  static final TextStyle tagList = TextStyle(
+    fontFamily: FontFamily.dana,
+    fontSize: AppDimes.title.sp,
+    color: AppColors.btmNavColor,
+    fontWeight: FontWeight.w400,
+  );
   static final TextStyle hint = TextStyle(
     fontFamily: FontFamily.dana,
     fontSize: AppDimes.textFontHint.sp,

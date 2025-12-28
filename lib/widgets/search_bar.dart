@@ -11,6 +11,15 @@ import 'package:watch_store/widgets/app_logo.dart';
 class AppSearchBar extends StatelessWidget {
   const AppSearchBar({super.key, required this.onTab});
   final VoidCallback onTab;
+  
+  static const _boxShadow = [
+    BoxShadow(
+      blurRadius: 3,
+      color: AppColors.shadow,
+      offset: Offset(2, 3),
+    ),
+  ];
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,25 +27,19 @@ class AppSearchBar extends StatelessWidget {
       child: InkWell(
         onTap: onTab,
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: AppColors.searchBar,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 3,
-                color: AppColors.shadow,
-                offset: Offset(2, 3),
-              ),
-            ],
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            boxShadow: _boxShadow,
           ),
           height: 52,
           width: double.infinity,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Flexible(child: SvgPicture.asset(Assets.svg.search)),
+              Flexible(child: SvgPicture.asset(Assets.svg.search, fit: BoxFit.none)),
               Expanded(child: Text(AppStrings.searchProduct, style: AppTextStyle.hint)),
-              Expanded(child: AppLogo(size: LogoSize.small)),
+              const Expanded(child: AppLogo(size: LogoSize.small)),
             ],
           ),
         ),

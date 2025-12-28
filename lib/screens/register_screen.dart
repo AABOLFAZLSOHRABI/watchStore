@@ -17,55 +17,53 @@ class RegisterScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: RegistrationAppBar(),
-        body: SafeArea(
-          child: SizedBox(
-            width: double.infinity,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  33.3.h.height,
-                  AppAvatar(),
-                  38.h.height,
-                  AppTextField(
-                    label: AppStrings.nameLastName,
-                    hint: AppStrings.hintNameLastName,
-                    controller: _controllerNameLastName,
-                  ),
-                  14.h.height,
-                  AppTextField(
-                    label: AppStrings.homeNumber,
-                    hint: AppStrings.hintHomeNumber,
-                    controller: _controllerNameLastName,
-                  ),
-                  14.h.height,
-                  AppTextField(
-                    label: AppStrings.address,
-                    hint: AppStrings.hintAddress,
-                    controller: _controllerNameLastName,
-                  ),
-                  14.h.height,
-                  AppTextField(
-                    label: AppStrings.postalCode,
-                    hint: AppStrings.hintPostalCode,
-                    controller: _controllerNameLastName,
-                  ),
-                  14.h.height,
-                  AppTextField(
-                    label: AppStrings.location,
-                    hint: AppStrings.hintLocation,
-                    controller: _controllerNameLastName,
-                    prefixIcon: Icon(Icons.location_on),
-                  ),
-                  29.h.height,
-                  MainButton(
-                    text: AppStrings.next,
-                    onTaPeressed: () {
-                      context.go(ScreenNames.mainScreen);
-                    },
-                  ),
-                  143.h.height,
-                ],
-              ),
+        body: SizedBox(
+          width: double.infinity,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                33.3.h.height,
+                AppAvatar(),
+                38.h.height,
+                AppTextField(
+                  label: AppStrings.nameLastName,
+                  hint: AppStrings.hintNameLastName,
+                  controller: _controllerNameLastName,
+                ),
+                14.h.height,
+                AppTextField(
+                  label: AppStrings.homeNumber,
+                  hint: AppStrings.hintHomeNumber,
+                  controller: _controllerNameLastName,
+                ),
+                14.h.height,
+                AppTextField(
+                  label: AppStrings.address,
+                  hint: AppStrings.hintAddress,
+                  controller: _controllerNameLastName,
+                ),
+                14.h.height,
+                AppTextField(
+                  label: AppStrings.postalCode,
+                  hint: AppStrings.hintPostalCode,
+                  controller: _controllerNameLastName,
+                ),
+                14.h.height,
+                AppTextField(
+                  label: AppStrings.location,
+                  hint: AppStrings.hintLocation,
+                  controller: _controllerNameLastName,
+                  prefixIcon: Icon(Icons.location_on),
+                ),
+                29.h.height,
+                MainButton(
+                  text: AppStrings.next,
+                  onTaPeressed: () {
+                    context.go(ScreenNames.mainScreen);
+                  },
+                ),
+                143.h.height,
+              ],
             ),
           ),
         ),

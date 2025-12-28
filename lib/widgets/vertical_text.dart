@@ -23,10 +23,11 @@ class VerticalText extends StatelessWidget {
             InkWell(
               onTap: () => context.push(ScreenNames.productListScreen),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Transform.rotate(
                     angle: 1.5,
-                    child: SvgPicture.asset(Assets.svg.back),
+                    child: SvgPicture.asset(Assets.svg.back, fit: BoxFit.none),
                   ),
                   AppDimes.smallW.w.width,
                   Text(AppStrings.viewAll),

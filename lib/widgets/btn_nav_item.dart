@@ -6,17 +6,20 @@ import 'package:watch_store/res/colors.dart';
 import 'package:watch_store/res/dimes.dart';
 
 class BtnNavItem extends StatelessWidget {
-  String iconSvgPath;
-  String label;
-  bool isActive;
-  void Function() onTap;
-  BtnNavItem({
+  final String? iconSvgPath;
+  final Widget? customIcon;
+  final String label;
+  final bool isActive;
+  final void Function() onTap;
+  
+  const BtnNavItem({
     super.key,
-    required this.iconSvgPath,
+    this.iconSvgPath,
+    this.customIcon,
     required this.label,
     required this.isActive,
     required this.onTap,
-  });
+  }) : assert(iconSvgPath != null || customIcon != null, 'Either iconSvgPath or customIcon must be provided');
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +32,9 @@ class BtnNavItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(
-                iconSvgPath,
+              customIcon ?? SvgPicture.asset(
+                iconSvgPath!,
+                fit: BoxFit.none,
                 colorFilter: ColorFilter.mode(
                   isActive
                       ? AppColors.btmNavActiveItem
