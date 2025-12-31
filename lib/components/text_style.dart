@@ -11,6 +11,12 @@ abstract class AppTextStyle {
     color: AppColors.title,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle get text => TextStyle(
+    fontFamily: FontFamily.dana,
+    fontSize: AppDimes.title.sp,
+    color: AppColors.title,
+    fontWeight: FontWeight.w300,
+  );
   static TextStyle get description => TextStyle(
     fontFamily: FontFamily.dana,
     fontSize: AppDimes.textFontHint.sp,

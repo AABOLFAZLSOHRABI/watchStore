@@ -31,32 +31,35 @@ class ProductTabSection extends StatelessWidget {
             textDirection: TextDirection.ltr,
             child: TabBarView(
               children: [
-                SingleChildScrollView(
-                  child: Align(
-                    alignment: Alignment.topRight,
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16,horizontal: 16),
                     child: Text(
-                      AppStrings.lure,
-                      style: AppTextStyle.description,
+                      AppStrings.lorem,
+                      style: AppTextStyle.text,
                       textAlign: TextAlign.right,
                     ),
                   ),
                 ),
-                SingleChildScrollView(
-                  child: Align(
-                    alignment: Alignment.topRight,
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16),
                     child: Text(
                       AppStrings.lure,
-                      style: AppTextStyle.description,
+                      style: AppTextStyle.text,
                       textAlign: TextAlign.right,
                     ),
                   ),
                 ),
-                SingleChildScrollView(
-                  child: Align(
-                    alignment: Alignment.topRight,
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16),
                     child: Text(
                       AppStrings.lure,
-                      style: AppTextStyle.description,
+                      style: AppTextStyle.text,
                       textAlign: TextAlign.right,
                     ),
                   ),

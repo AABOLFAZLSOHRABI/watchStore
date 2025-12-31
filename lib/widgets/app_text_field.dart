@@ -34,10 +34,25 @@ class AppTextField extends StatelessWidget {
           SizedBox(
             width: AppDimes.textFieldWidth.w,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(prefixText, style: AppTextStyle.title),
-                Text(label, style: AppTextStyle.title),
+                Flexible(
+                  child: Text(
+                    prefixText,
+                    style: AppTextStyle.title,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                SizedBox(width: AppDimes.smallH.w),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      label,
+                      style: AppTextStyle.title,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
