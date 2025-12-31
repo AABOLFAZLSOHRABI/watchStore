@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:watch_store/components/button_style.dart';
@@ -36,12 +35,10 @@ class ProductActionBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    priceText,
-                    style: AppTextStyle.title,
-                  ),
+                  Text(priceText, style: AppTextStyle.title),
                   Visibility(
                     visible: oldPrice > 0,
                     child: Text(
