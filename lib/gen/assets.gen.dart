@@ -30,6 +30,9 @@ class $AssetsFontsGen {
 class $AssetsPngGen {
   const $AssetsPngGen();
 
+  /// File path: assets/png/Clock.png
+  AssetGenImage get clock => const AssetGenImage('assets/png/Clock.png');
+
   /// File path: assets/png/avatar.png
   AssetGenImage get avatar => const AssetGenImage('assets/png/avatar.png');
 
@@ -40,7 +43,7 @@ class $AssetsPngGen {
   AssetGenImage get unnamed => const AssetGenImage('assets/png/unnamed.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [avatar, mainLogo, unnamed];
+  List<AssetGenImage> get values => [clock, avatar, mainLogo, unnamed];
 }
 
 class $AssetsSvgGen {
@@ -72,6 +75,9 @@ class $AssetsSvgGen {
 
   /// File path: assets/svg/desktop.svg
   String get desktop => 'assets/svg/desktop.svg';
+
+  /// File path: assets/svg/desktop_home.svg
+  String get desktopHome => 'assets/svg/desktop_home.svg';
 
   /// File path: assets/svg/digital.svg
   String get digital => 'assets/svg/digital.svg';
@@ -126,6 +132,7 @@ class $AssetsSvgGen {
     delete,
     delivered,
     desktop,
+    desktopHome,
     digital,
     home,
     inProccess,

@@ -4,15 +4,15 @@ class AppColors {
   AppColors._();
   static const List<Color> productBgGradient = [
     Color.fromARGB(255, 238, 238, 238),
-    Color.fromARGB(255, 255, 255, 255)
+    Color.fromARGB(255, 255, 255, 255),
   ];
   static const List<Color> catClassicColors = [
     Color.fromARGB(255, 255, 166, 114),
-    Color.fromARGB(255, 255, 227, 200)
+    Color.fromARGB(255, 255, 227, 200),
   ];
   static const List<Color> catSmartColors = [
     Color.fromARGB(255, 139, 162, 168),
-    Color.fromARGB(255, 223, 238, 245)
+    Color.fromARGB(255, 223, 238, 245),
   ];
   static const List<Color> catDigitalColors = [
     Color(0xFFE183D4),
@@ -30,8 +30,12 @@ class AppColors {
   static const Color hint = Colors.grey;
   static const Color appBar = Colors.white;
   static const Color searchBar = Colors.white;
-  static const Color scaffoldBackgroundColor =
-      Color.fromARGB(255, 251, 251, 251);
+  static const Color scaffoldBackgroundColor = Color.fromARGB(
+    255,
+    251,
+    251,
+    251,
+  );
   static const Color borderColor = Colors.grey;
   static const Color focusedBorderColor = Colors.blue;
   static const Color primaryColor = Colors.blue;
@@ -43,8 +47,11 @@ class AppColors {
   static const Color btmNavActiveItem = Color.fromARGB(255, 0, 0, 0);
   static const Color btmNavInActiveItem = Color.fromARGB(255, 196, 196, 196);
   static const Color amazingColor = Color.fromARGB(255, 57, 24, 80);
+  static const Color divider = Color.fromARGB(255, 217, 220, 228);
+
   static const Color success = Colors.green;
   static const Color nextStepBuyingBtnColor = Color.fromARGB(255, 255, 97, 97);
   static const Color onSuccess = Colors.white;
+
   static const Color btnColor = Color.fromARGB(255, 0, 117, 251);
 }

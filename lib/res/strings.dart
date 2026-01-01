@@ -43,6 +43,8 @@ abstract class AppStrings {
   static const String count = "عدد";
   static const String totalPrice = "مجموع  $replace تومان";
   static const String continueToPurchase = "مجموع  $replace تومان";
+  static const String priceLabel = "قیمت  : $replace تومان";
+  static const String discountedPriceLabel = "با تخفیف: $replace  تومان";
   static const String userProfile = "پروفایل کاربر";
   static const String activeAddress = "آدرس فعال";
   static const String termOfService = "قوانین و مقررات";

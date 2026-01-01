@@ -8,6 +8,7 @@ import 'package:watch_store/gen/assets.gen.dart';
 import 'package:watch_store/res/colors.dart';
 import 'package:watch_store/res/dimes.dart';
 import 'package:watch_store/res/strings.dart';
+import 'package:watch_store/widgets/basket_item_card.dart';
 import 'package:watch_store/widgets/custom_app_bar.dart';
 import 'package:watch_store/widgets/product_actionBar.dart';
 
@@ -59,6 +60,23 @@ class BasketScreen extends StatelessWidget {
                     ],
                   ),
                 ],
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: 2,
+                itemBuilder: (context, index) {
+                  return BasketItemCard(
+                    productName: 'ساعت ایلستر',
+                    price: 790000,
+                    discountedPrice: 700000,
+                    imagePath: Assets.png.clock.path,
+                    onDelete: () {},
+                    onDecrease: () {},
+                    onIncrease: () {},
+                    countLabel: 1.toString(),
+                  );
+                },
               ),
             ),
           ],
