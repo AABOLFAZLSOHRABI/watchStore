@@ -10,7 +10,7 @@ import 'package:watch_store/res/dimes.dart';
 import 'package:watch_store/res/strings.dart';
 import 'package:watch_store/widgets/badge_cart.dart';
 import 'package:watch_store/widgets/custom_app_bar.dart';
-import 'package:watch_store/widgets/product_actionBar.dart';
+import 'package:watch_store/widgets/product_action_bar.dart';
 import 'package:watch_store/widgets/product_tab_section.dart';
 
 class ProductSingleScreen extends StatelessWidget {

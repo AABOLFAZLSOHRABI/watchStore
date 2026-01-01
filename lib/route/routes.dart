@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:watch_store/route/names.dart';
-import 'package:watch_store/screens/get_otp_screen.dart';
+import 'package:watch_store/screens/auth/verify_code_screen.dart';
 import 'package:watch_store/screens/main_screen/basket_screen.dart';
 import 'package:watch_store/screens/main_screen/home_screen.dart';
 import 'package:watch_store/screens/main_screen/main_screen.dart';
@@ -8,7 +8,7 @@ import 'package:watch_store/screens/main_screen/product_list_screen.dart';
 import 'package:watch_store/screens/main_screen/product_single_screen.dart';
 import 'package:watch_store/screens/main_screen/profile_screen.dart';
 import 'package:watch_store/screens/register_screen.dart';
-import 'package:watch_store/screens/send_otp_screen.dart';
+import 'package:watch_store/screens/auth/send_sms_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -58,12 +58,12 @@ final appRouter = GoRouter(
     GoRoute(
       name: "root",
       path: ScreenNames.root,
-      builder: (context, state) => SendOtpScreen(),
+      builder: (context, state) => SendSmsScreen(),
     ),
     GoRoute(
       name: "GetOtpScreen",
-      path: ScreenNames.getOtpScreen,
-      builder: (context, state) => GetOtpScreen(),
+      path: ScreenNames.verifyCodeScreen,
+      builder: (context, state) => VerifyCodeScreen(),
     ),
     GoRoute(
       name: "RegisterScreen",
@@ -74,6 +74,11 @@ final appRouter = GoRouter(
       name: "productSingleScreen",
       path: ScreenNames.productSingleScreen,
       builder: (context, state) => const ProductSingleScreen(),
+    ),
+    GoRoute(
+      name: "sendSmsScreen",
+      path: ScreenNames.sendSmsScreen,
+      builder: (context, state) => SendSmsScreen(),
     ),
   ],
 );

@@ -2,18 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:watch_store/components/extention.dart';
-import 'package:watch_store/components/text_style.dart';
-import 'package:watch_store/res/colors.dart';
 import 'package:watch_store/res/strings.dart';
 import 'package:watch_store/route/names.dart';
 import 'package:watch_store/widgets/app_logo.dart';
 import 'package:watch_store/widgets/app_text_field.dart';
 import 'package:watch_store/widgets/main_button.dart';
 
-class GetOtpScreen extends StatelessWidget {
-  GetOtpScreen({super.key});
+class SendSmsScreen extends StatelessWidget {
+  SendSmsScreen({super.key});
   final TextEditingController _controller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,33 +21,17 @@ class GetOtpScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               AppLogo(size: LogoSize.large),
-              47.h.height,
-              Text(
-                AppStrings.otpCodeSendFor.replaceAll(
-                  AppStrings.replace,
-                  "0912566",
-                ),
-                style: AppTextStyle.title,
-              ),
-
-              14.h.height,
-              Text(
-                AppStrings.wrongNumberEditNumber,
-                style: TextStyle(color: AppColors.primaryColor),
-              ),
-              63.h.height,
+              116.h.height,
               AppTextField(
-                label: AppStrings.enterVerificationCode,
-                hint: AppStrings.hintVerificationCode,
+                label: AppStrings.enterYourNumber,
+                hint: AppStrings.hintPhoneNumber,
                 controller: _controller,
                 textAlign: TextAlign.center,
-                prefixText: "2:56",
               ),
               24.h.height,
               MainButton(
-                text: AppStrings.next,
-                onTaPeressed: () =>
-                    context.push(ScreenNames.registerScreen),
+                text: AppStrings.sendOtpCode,
+                onTaPeressed: () => context.push(ScreenNames.verifyCodeScreen),
               ),
             ],
           ),
