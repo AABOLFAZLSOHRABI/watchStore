@@ -7,6 +7,7 @@ import 'package:watch_store/gen/assets.gen.dart';
 import 'package:watch_store/res/colors.dart';
 import 'package:watch_store/res/dimes.dart';
 import 'package:watch_store/res/strings.dart';
+import 'package:watch_store/widgets/surface_box.dart';
 
 class BasketItemCard extends StatelessWidget {
   final String productName;
@@ -32,20 +33,8 @@ class BasketItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: AppDimes.smallW,
-        vertical: AppDimes.smallH,
-      ),
-      padding: EdgeInsets.all(16),
+    return SurfaceBox(
       height: 160.h,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: AppColors.surfaceColor,
-        borderRadius: BorderRadius.circular(
-          AppDimes.mediumRadius.r,
-        ),
-      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.end,

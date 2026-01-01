@@ -23,7 +23,7 @@ class RegisterScreen extends StatelessWidget {
             child: Column(
               children: [
                 33.3.h.height,
-                AppAvatar(),
+                AppAvatar(title: AppStrings.chooseProfileImage,),
                 38.h.height,
                 AppTextField(
                   label: AppStrings.nameLastName,
