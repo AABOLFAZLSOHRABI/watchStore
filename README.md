@@ -18,11 +18,14 @@ A modern Flutter e-commerce application for buying and selling watches, built wi
 
 - **Framework**: Flutter
 - **State Management**: BLoC Pattern
+- **Navigation**: GoRouter for declarative routing
+- **Networking**: Dio for API communication
 - **UI Components**: Custom widgets with Material Design
-- **Fonts**: Google Fonts integration
-- **Icons/Images**: Flutter SVG support
+- **Fonts**: Dana (Local) and Google Fonts integration
+- **Icons/Images**: Flutter SVG and Cached Network Image support
 - **Responsive**: ScreenUtil for adaptive layouts
-- **Architecture**: Clean Architecture with separation of concerns
+- **Loading States**: Skeletonizer for modern shimmer effects
+- **Architecture**: Modular Layered Architecture
 
 ## Getting Started
 
@@ -67,19 +70,24 @@ flutter run
 ```
 lib/
 ├── components/          # Reusable UI components and themes
-├── gen/                # Generated files
-├── res/                # Resources (colors, strings, dimens)
-├── screens/            # App screens (auth, product, profile)
-├── widgets/            # Custom widgets
+├── gen/                # Generated files (assets, fonts)
+├── res/                # Resources (colors, strings, dimensions)
+├── route/              # Navigation and route definitions
+├── screens/            # App screens and feature-specific UI
+├── widgets/            # Global custom widgets
 └── main.dart           # App entry point
 ```
 
 ## Key Dependencies
 
-- `flutter_screenutil`: Responsive design utilities
-- `google_fonts`: Custom typography
-- `flutter_svg`: SVG image support
 - `flutter_bloc`: State management
+- `go_router`: Declarative routing
+- `dio`: HTTP client for networking
+- `flutter_screenutil`: Responsive design utilities
+- `skeletonizer`: Shimmer loading effects
+- `cached_network_image`: Optimized image loading
+- `flutter_svg`: SVG image support
+- `carousel_slider`: Smooth product carousels
 
 ## Development
 
