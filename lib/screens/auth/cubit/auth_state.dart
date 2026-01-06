@@ -4,3 +4,15 @@ part of 'auth_cubit.dart';
 sealed class AuthState {}
 
 final class AuthInitial extends AuthState {}
+
+final class LoadingState extends AuthState {}
+
+final class SMSSentState extends AuthState {}
+
+final class ErrorState extends AuthState {}
+
+final class VerifiedState extends AuthState {}
+
+final class LoggedInState extends AuthState {}
+
+final class LoggedOutState extends AuthState {}
