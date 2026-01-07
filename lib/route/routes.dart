@@ -112,7 +112,7 @@ GoRouter createRouter(AuthCubit authCubit) {
       GoRoute(
         name: "GetOtpScreen",
         path: ScreenNames.verifyCodeScreen,
-        builder: (context, state) => VerifyCodeScreen(),
+        builder: (context, state) => VerifyCodeScreen(mobile: state.extra as String),
       ),
       GoRoute(
         name: "RegisterScreen",

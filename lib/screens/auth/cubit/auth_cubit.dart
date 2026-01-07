@@ -8,22 +8,35 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial()) {
-    //
+    emit(LoggedOutState());
   }
-  Dio dio = Dio();
+
+  final Dio _dio = Dio(
+    BaseOptions(
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      followRedirects: true,
+      validateStatus: (status) => status! < 500,
+    ),
+  );
+
   void sendSMS(String phone) async {
     emit(LoadingState());
     try {
-      ;
-      await dio.post(Endpoints.sendSMS, data: {"phone": phone}).then((value) {
-        debugPrint(value.toString());
-        if (value.statusCode == 201) {
-          emit(SMSSentState());
-        } else {
-          emit(ErrorState());
-        }
-      });
+      final response = await _dio.post(
+        Endpoints.sendSMS,
+        data: FormData.fromMap({"mobile": phone}),
+      );
+      debugPrint(response.toString());
+      if (response.statusCode == 201 || response.statusCode == 200) {
+        emit(SMSSentState());
+      } else {
+        emit(ErrorState());
+      }
     } catch (e) {
+      debugPrint(e.toString());
       emit(ErrorState());
     }
   }
@@ -31,18 +44,22 @@ class AuthCubit extends Cubit<AuthState> {
   void verifySMSCode(String phone, String smsCode) async {
     emit(LoadingState());
     try {
-      ;
-      await dio
-          .post(Endpoints.checkSMSCode, data: {"phone": phone, "code": smsCode})
-          .then((value) {
-            debugPrint(value.toString());
-            if (value.statusCode == 201) {
-              emit(SMSSentState());
-            } else {
-              emit(ErrorState());
-            }
-          });
+      final response = await _dio.post(
+        Endpoints.checkSMSCode,
+        data: FormData.fromMap({"mobile": phone, "code": smsCode}),
+      );
+      debugPrint(response.toString());
+      if (response.statusCode == 201 || response.statusCode == 200) {
+        if (response.data["data"]["is_registered"]) {
+          emit(LoggedInState());
+        } else {
+          emit(VerifiedIsNotRegistrationState());
+        }
+      } else {
+        emit(ErrorState());
+      }
     } catch (e) {
+      debugPrint(e.toString());
       emit(ErrorState());
     }
   }
@@ -50,17 +67,18 @@ class AuthCubit extends Cubit<AuthState> {
   void register(String phone, String name) async {
     emit(LoadingState());
     try {
-      await dio
-          .post(Endpoints.register, data: {"phone": phone, "name": name})
-          .then((value) {
-            debugPrint(value.toString());
-            if (value.statusCode == 201) {
-              emit(VerifiedState());
-            } else {
-              emit(ErrorState());
-            }
-          });
+      final response = await _dio.post(
+        Endpoints.register,
+        data: FormData.fromMap({"mobile": phone, "name": name}),
+      );
+      debugPrint(response.toString());
+      if (response.statusCode == 201 || response.statusCode == 200) {
+        emit(LoggedInState());
+      } else {
+        emit(ErrorState());
+      }
     } catch (e) {
+      debugPrint(e.toString());
       emit(ErrorState());
     }
   }

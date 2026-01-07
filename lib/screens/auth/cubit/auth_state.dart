@@ -11,7 +11,9 @@ final class SMSSentState extends AuthState {}
 
 final class ErrorState extends AuthState {}
 
-final class VerifiedState extends AuthState {}
+final class VerifiedIsRegistrationState extends AuthState {}
+
+final class VerifiedIsNotRegistrationState extends AuthState {}
 
 final class LoggedInState extends AuthState {}
 
