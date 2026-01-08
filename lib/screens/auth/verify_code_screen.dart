@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,10 +14,53 @@ import 'package:watch_store/widgets/app_logo.dart';
 import 'package:watch_store/widgets/app_text_field.dart';
 import 'package:watch_store/widgets/main_button.dart';
 
-class VerifyCodeScreen extends StatelessWidget {
+class VerifyCodeScreen extends StatefulWidget {
   VerifyCodeScreen({super.key, required this.mobile});
-  final TextEditingController _controller = TextEditingController();
   final String mobile;
+
+  @override
+  State<VerifyCodeScreen> createState() => _VerifyCodeScreenState();
+}
+
+class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
+  final TextEditingController _controller = TextEditingController();
+  late Timer _timer;
+  int _start = 176;
+
+  void startTimer() {
+    const oneSec = Duration(seconds: 1);
+    _timer = Timer.periodic(oneSec, (Timer timer) {
+      if (_start == 0) {
+        setState(() {
+          timer.cancel();
+          context.pop();
+        });
+      } else {
+        setState(() {
+          _start--;
+        });
+      }
+    });
+  }
+
+  String get timerText {
+    int minutes = _start ~/ 60;
+    int seconds = _start % 60;
+    return "${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}";
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    startTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +76,18 @@ class VerifyCodeScreen extends StatelessWidget {
               Text(
                 AppStrings.otpCodeSendFor.replaceAll(
                   AppStrings.replace,
-                  mobile,
+                  widget.mobile,
                 ),
                 style: AppTextStyle.title,
               ),
 
               14.h.height,
-              Text(
-                AppStrings.wrongNumberEditNumber,
-                style: TextStyle(color: AppColors.primaryColor),
+              GestureDetector(
+                onTap: () => context.pop(),
+                child: Text(
+                  AppStrings.wrongNumberEditNumber,
+                  style: TextStyle(color: AppColors.primaryColor),
+                ),
               ),
               63.h.height,
               AppTextField(
@@ -47,13 +95,12 @@ class VerifyCodeScreen extends StatelessWidget {
                 hint: AppStrings.hintVerificationCode,
                 controller: _controller,
                 textAlign: TextAlign.center,
-                prefixText: "2:56",
+                prefixText: timerText,
               ),
               24.h.height,
               BlocConsumer<AuthCubit, AuthState>(
                 listener: (context, state) {
                   if (state is LoggedInState) {
-                    // تغییر صفحه به صورت خودکار توسط Redirect در routes.dart انجام می‌شود
                   } else if (state is VerifiedIsNotRegistrationState) {
                     context.push(
                       ScreenNames.registerScreen,
@@ -78,7 +125,7 @@ class VerifyCodeScreen extends StatelessWidget {
                     onTaPeressed: () {
                       BlocProvider.of<AuthCubit>(
                         context,
-                      ).verifySMSCode(mobile, _controller.text);
+                      ).verifySMSCode(widget.mobile, _controller.text);
                     },
                   );
                 },

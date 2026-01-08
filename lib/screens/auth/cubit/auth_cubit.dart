@@ -3,12 +3,22 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:watch_store/data/constants.dart';
+import 'package:watch_store/data/local/secure_storage_service.dart';
 
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(AuthInitial()) {
-    emit(LoggedOutState());
+  final SecureStorageService _storage;
+  AuthCubit(this._storage) : super(AuthInitial()) {
+    _checkToken();
+  }
+
+  void _checkToken() async {
+    if (await _storage.readToken() != null) {
+      emit(LoggedInState());
+    } else {
+      emit(LoggedOutState());
+    }
   }
 
   final Dio _dio = Dio(
@@ -41,7 +51,7 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void verifySMSCode(String phone, String smsCode) async {
+  Future<void> verifySMSCode(String phone, String smsCode) async {
     emit(LoadingState());
     try {
       final response = await _dio.post(
@@ -50,6 +60,8 @@ class AuthCubit extends Cubit<AuthState> {
       );
       debugPrint(response.toString());
       if (response.statusCode == 201 || response.statusCode == 200) {
+        final token = response.data["data"]["token"];
+        await _storage.saveToken(token);
         if (response.data["data"]["is_registered"]) {
           emit(LoggedInState());
         } else {
@@ -64,22 +76,8 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void register(String phone, String name) async {
-    emit(LoadingState());
-    try {
-      final response = await _dio.post(
-        Endpoints.register,
-        data: FormData.fromMap({"mobile": phone, "name": name}),
-      );
-      debugPrint(response.toString());
-      if (response.statusCode == 201 || response.statusCode == 200) {
-        emit(LoggedInState());
-      } else {
-        emit(ErrorState());
-      }
-    } catch (e) {
-      debugPrint(e.toString());
-      emit(ErrorState());
-    }
+  void logOut() async {
+    await _storage.deleteToken();
+    emit(LoggedOutState());
   }
 }

@@ -4,8 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:watch_store/components/text_style.dart';
 import 'package:watch_store/res/dimes.dart';
 
-class GatWidget extends StatelessWidget {
-  const GatWidget({
+class CatWidget extends StatelessWidget {
+  const CatWidget({
     super.key,
     required this.title,
     required this.icon,

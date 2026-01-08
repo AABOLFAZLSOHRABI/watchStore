@@ -27,25 +27,25 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  GatWidget(
+                  CatWidget(
                     title: AppStrings.desktop,
                     icon: Assets.svg.desktop,
                     bgColor: AppColors.catDesktopColors,
                     onTap: () {},
                   ),
-                  GatWidget(
+                  CatWidget(
                     title: AppStrings.digital,
                     icon: Assets.svg.digital,
                     bgColor: AppColors.catDigitalColors,
                     onTap: () {},
                   ),
-                  GatWidget(
+                  CatWidget(
                     title: AppStrings.smart,
                     icon: Assets.svg.smart,
                     bgColor: AppColors.catSmartColors,
                     onTap: () {},
                   ),
-                  GatWidget(
+                  CatWidget(
                     title: AppStrings.classic,
                     icon: Assets.svg.classic,
                     bgColor: AppColors.catClassicColors,

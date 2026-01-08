@@ -54,6 +54,7 @@ abstract class AppStrings {
   static const String delivered = "تحویل شده";
   static const String nextStepBuying = "ادامه فرایند خرید";
   static const String productName = "نام محصول";
+  static const String logout = "خروج از حساب کاربری";
   static const String lure =
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ ";
   static const String lorem =

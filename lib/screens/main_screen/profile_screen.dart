@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:watch_store/components/extention.dart';
 import 'package:watch_store/components/text_style.dart';
 import 'package:watch_store/gen/assets.gen.dart';
 import 'package:watch_store/res/dimes.dart';
 import 'package:watch_store/res/strings.dart';
+import 'package:watch_store/screens/auth/cubit/auth_cubit.dart';
 import 'package:watch_store/widgets/avatar.dart';
 import 'package:watch_store/widgets/custom_app_bar.dart';
 import 'package:watch_store/widgets/data_user_info.dart';
@@ -82,6 +84,17 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         )
                         .toList(),
+                  ),
+                ),
+                AppDimes.smallH.h.height,
+
+                SurfaceBox(
+                  height: 50.h,
+                  child: GestureDetector(
+                    onTap: () {
+                      context.read<AuthCubit>().logOut();
+                    },
+                    child: Text(AppStrings.logout),
                   ),
                 ),
                 AppDimes.smallH.h.height,

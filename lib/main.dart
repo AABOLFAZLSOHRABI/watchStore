@@ -2,17 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:watch_store/components/theme.dart';
+import 'package:watch_store/data/local/secure_storage_service.dart';
 import 'package:watch_store/route/routes.dart';
 import 'package:watch_store/screens/auth/cubit/auth_cubit.dart';
+
+import 'package:go_router/go_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(const MyApp());
+  runApp(
+    BlocProvider(
+      create: (_) => AuthCubit(SecureStorageService()),
+      child: const MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late final GoRouter _router;
+
+  @override
+  void initState() {
+    super.initState();
+    // Cache the router instance to prevent recreating it on every build
+    _router = createRouter(context.read<AuthCubit>());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,21 +43,11 @@ class MyApp extends StatelessWidget {
       minTextAdapt: false,
       splitScreenMode: true,
       builder: (context, child) {
-        return BlocProvider(
-          create: (_) => AuthCubit(),
-          child: Builder(
-            builder: (context) {
-              final authCubit = context.read<AuthCubit>();
-              final router = createRouter(authCubit);
-
-              return MaterialApp.router(
-                routerConfig: router,
-                debugShowCheckedModeBanner: false,
-                title: 'Watch Store',
-                theme: lightTheme,
-              );
-            },
-          ),
+        return MaterialApp.router(
+          routerConfig: _router,
+          debugShowCheckedModeBanner: false,
+          title: 'Watch Store',
+          theme: lightTheme,
         );
       },
     );
